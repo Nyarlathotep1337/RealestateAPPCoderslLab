@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>date_addet</th>
+            <th>date_when_aviable</th>
+            <th>price</th>
+            <th>area</th>
+            <th>location</th>
+            <th>ownership</th>
+            <th>area_land</th>
+            <th>land_shape</th>
+            <th>drive</th>
+            <th>rooms</th>
+            <th>floor</th>
+            <th>floors</th>
+            <th>market</th>
+            <th>building_material</th>
+            <th>roof</th>
+            <th>roof_material</th>
+            <th>media</th>
+            <th></th>
+            <th></th>
+
+
+        </tr>
+        {% for realestate in realestates %}
+            <tr class="{% cycle 'table-light' 'table-secondary'%}">
+
+                <td>{{ forloop.counter }}</td>
+                <td>{{ realestate.date_addet }}</td>
+                <td>{{ realestate.date_when_aviable }}</td>
+                <td>{{ realestate.price }}</td>
+                <td>{{ realestate.area }}</td>
+                <td>{{ realestate.location }}</td>
+                <td>{{ realestate.ownership }}</td>
+                <td>{{ realestate.area_land }}</td>
+                <td>{{ realestate.land_shape }}</td>
+                <td>{{ realestate.drive }}</td>
+                <td>{{ realestate.rooms }}</td>
+                <td>{{ realestate.floor }}</td>
+                <td>{{ realestate.floors }}</td>
+                <td>{{ realestate.market }}</td>
+                <td>{{ realestate.building_material }}</td>
+                <td>{{ realestate.roof }}</td>
+                <td>{{ realestate.roof_material }}</td>
+                <td>{{ realestate.media }}</td>
+                <td> <a class="bg-dark" href="{% url 'edit_realestate' realestate.id %}">Edit Realestate</a></td>
+                <td> <a class="bg-dark" href="{% url 'delete_realestate' realestate.id %}">Delete Realestate</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

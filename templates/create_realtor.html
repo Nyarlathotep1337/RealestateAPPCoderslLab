@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>surname</th>
+            <th>bio</th>
+            <th>title</th>
+            <th></th>
+        </tr>
+        {% for realtors in realtor %}
+            <tr class="{% cycle 'table-light' 'table-secondary'%}">
+
+                <td>{{ forloop.counter }}</td>
+                <td>{{ realtor.first_name }}</td>
+                <td>{{ realtor.last_name }}</td>
+                <td>{{ realtor.bio }}</td>
+                <td>{{ realtor.title }}</td>
+                <td><a class="btn btn-info" href="{% url 'create_game_for_hero' hero.id %}">Nowa Gra</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

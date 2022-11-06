@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>bio</th>
+            <th>title</th>
+            <th></th>
+        </tr>
+        {% for realtor in realtors %}
+            <tr class="{% cycle 'table-light' 'table-secondary'%}">
+
+                <td>{{ forloop.counter }}</td>
+                <td>{{ realtor.user }}</td>
+                <td>{{ realtor.bio }}</td>
+                <td>{{ realtor.title }}</td>
+                <td> <a class="bg-dark" href="{% url 'edit_realtor' realtor.id %}">Edit Realtor</a></td>
+                <td> <a class="bg-danger" href="{% url 'delete_realtor' realtor.id %}">Delete Realtor</a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
